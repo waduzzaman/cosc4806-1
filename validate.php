@@ -1,15 +1,21 @@
 <?php
 
-$valid_username="mahbub";
-$valid_password="password";
+session_start();
 
-$username=$_REQUEST['username'];
-$password=$_REQUEST['password'];
+$valid_username = "mahbub";
+$valid_password = "password";
 
-if($username==$valid_username && $password==$valid_password){
-  echo "Login Successfull";
-} else
-  echo "Login Failed";
+$username = $_REQUEST['username'];
+$password = $_REQUEST['password'];
 
-
+if ($valid_username=$username && $valid_password == $password) {
+    echo "Login Successful";
+} else {
+    if (!isset($_SESSION['failed_attempts'])) {
+        $_SESSION['failed_attempts'] = 1;
+    } else {
+        $_SESSION['failed_attempts'] = $_SESSION['failed_attempts'] + 1;
+    }
+    echo "This is unsuccessful attempt number " . $_SESSION['failed_attempts'];
+}
 ?>

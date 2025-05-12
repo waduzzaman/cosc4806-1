@@ -14,7 +14,7 @@
       <br>
       <label for="username">Password</label>
       <br>
-      <input type="password" id="password" name="password" placeholder = ''>
+      <input type="password" id="password" name="password" placeholder = 'password'>
       <br><br>
       <input type="submit" value="Submit">
     </form>
